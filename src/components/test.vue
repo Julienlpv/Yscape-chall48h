@@ -1,8 +1,8 @@
 <template>
- 
+ <p>test</p>
 </template>
 
-<script setup>
+<script>
 
 </script>
 
