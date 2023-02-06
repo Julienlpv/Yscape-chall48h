@@ -10,6 +10,7 @@ const routes = [
         name:'Home',
         path: '/',
         component: Home,
+        props: {value: 'false'}
       },
       {
         name: 'Auth',
@@ -36,6 +37,7 @@ const routes = [
         
       }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),

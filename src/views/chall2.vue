@@ -56,6 +56,11 @@
           <button class="btn7" @click="valideQ7">Valider</button> 
         </div>
   </div>
+  <div v-if="isVisibleFIN">
+    <label>Mot A jouter</label>
+    <router-link to="/"><button class="fin">RETOUR</button></router-link>
+  </div>
+
   
 </template>
 
@@ -76,6 +81,7 @@ export default defineComponent({
       isVisibleChall6: true,
       isVisibleChall7: true,
       isInputEnabled: true,
+      isVisibleFIN: true,
     }
   },
   methods: {
@@ -87,6 +93,9 @@ export default defineComponent({
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall1 = !this.isVisibleChall1
       }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
+      }
         
     },
     valideQ2(){
@@ -96,6 +105,9 @@ export default defineComponent({
         alert("Bravo tu as trouvé la deuxième énigme !")
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall2 = !this.isVisibleChall2
+      }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
       }
         
     },
@@ -107,6 +119,9 @@ export default defineComponent({
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall3 = !this.isVisibleChall3
       }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
+      }
         
     },
     valideQ4(){
@@ -116,6 +131,9 @@ export default defineComponent({
         alert("Bravo tu as trouvé la quatrième énigme !")
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall4 = !this.isVisibleChall4
+      }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
       }
         
     },
@@ -127,6 +145,9 @@ export default defineComponent({
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall5 = !this.isVisibleChall5
       }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
+      }
         
     },
     valideQ6(){
@@ -136,6 +157,9 @@ export default defineComponent({
         alert("Bravo tu as trouvé la sixième énigme !")
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall6 = !this.isVisibleChall6
+      }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
       }
         
     },
@@ -147,6 +171,9 @@ export default defineComponent({
         alert("Bravo tu as trouvé la septième énigme !")
         this.isInputEnabled = !this.isInputEnabled
         this.isVisibleChall7 = !this.isVisibleChall7
+      }
+      if (isVisibleChall1== false && isVisibleChall2== false && isVisibleChall3== false && isVisibleChall4== false && isVisibleChall5== false && isVisibleChall6== false && isVisibleChall7== false) {
+        this.isVisibleFIN = !this.isVisibleFIN
       }
         
     },

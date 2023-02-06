@@ -1,6 +1,7 @@
 
 <template>
   <div class="zoneCard">
+    <div>Item: {{ msg }}</div>
     <div class="card">
     <img src="../assets/room.JPG" alt="Avatar">
     <div class="container">
@@ -30,8 +31,12 @@
       <p>A vous de trouver le code !</p>
       <div v-if="isVisibleChall1">
         <router-link to="/chall2"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
+      <div class="zoneInput">
+        <label>Entre le code secret</label>
+        <input id="chall3">
+        <button @click="methChall3">Valider</button>  
       </div>
-
+    </div>
     </div>
   </div>
 
@@ -46,7 +51,9 @@
       <p>En regardant autour de vous, vous trouvez une inscription gravée dans le mur "Un seul mot parfois suffit à délivrer l'oiseau en cage". </p>
       <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
       <p>Réunissez vos forces et tentez de le lire !</p>
+      <div v-if="isVisibleChall3">
         <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
+      </div>
     </div>
   </div>
   </div>
@@ -61,6 +68,7 @@ export default defineComponent ({
   data(){    
     return {
       isVisibleChall1: false,
+      isVisibleChall3: false
 
     }
     },
@@ -71,6 +79,16 @@ export default defineComponent ({
       if (input == "Clef violette" || input == "clef violette") {
         alert("Bravo tu as trouvé la clef ! Tu peux passer à l'étape suivante. Bon jeu !")
         this.isVisibleChall1 = !this.isVisibleChall1
+      }
+        
+    },
+
+    methChall3(){
+      var input = document.getElementById("chall3").value;
+      console.log(input)
+      if (input == "t" || input == "t") {
+        alert("Bravo tu as trouvé le flag ! Tu arrive à la dernière étape de ce jeu. Bonne chance !")
+        this.isVisibleChall3 = !this.isVisibleChall3
       }
         
     },

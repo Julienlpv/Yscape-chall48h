@@ -25,7 +25,7 @@
 
 
     .timerZone {
-    margin-top:500px;
+    margin-top:50px;
     margin-left: 30%;
   }
   </style>
