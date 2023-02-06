@@ -6,6 +6,7 @@
     <div class="container">
       <h4><b>Chall 1</b></h4>
       <p>Architect & Engineer</p>
+      <button router-link to="/chall1"></button>
     </div>
   </div>
   <div class="card">
@@ -13,6 +14,7 @@
     <div class="container">
       <h4><b>Chall 2</b></h4>
       <p>Architect & Engineer</p>
+      <button router-link to="/chall2"></button>
     </div>
   </div>
   <div class="card">
@@ -20,6 +22,7 @@
     <div class="container">
       <h4><b>Chall 3</b></h4>
       <p>Architect & Engineer</p>
+      <button router-link to="/chall3"></button>
     </div>
   </div>
   </div>

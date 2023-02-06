@@ -1,7 +1,7 @@
 <template>
   <div class="greetings">
     <header>
-      <headerPage />
+      <router-view/>
     </header>
     <main>
 
@@ -15,9 +15,15 @@
 </template>
 
 
-<script setup>
-import Home from './components/Home.vue'
-import headerPage from './components/Header.vue'
+<script lang="js">
+import { defineComponent } from 'vue';
+import Home from '@/views/Home.vue';
+
+
+export default defineComponent({
+  name: 'app',
+ 
+});
 
 </script>
 
