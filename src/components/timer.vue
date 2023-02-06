@@ -1,19 +1,34 @@
 <template>
     <div class="timer_hook">
-        <p>00</p>
-        <p>00</p>
-        <p>00</p>
-        <p>00</p>
+        <p>{{ hours }}</p>
+        <p>{{ hours % 24 }}</p>
+        <p>{{ minutes % 60 }}</p>
+        <p>{{ seconds % 60 }}</p>
     </div>
 </template>
 
 
 <script>
 import { defineComponent } from "vue";
+import { ref } from '@vue/reactivity';
 
 export default {
-    name:"timer",
-    components: {},
+    setup(){
+        const hours = ref(0);
+        const minutes = ref(0);
+        const seconds = ref(0);
+        const launchDate = new Date('1 janvier 2023').
+
+        setInterval(() => {
+            const currDate = new Date();
+            const launchTime = launchDate - currDate
+
+            seconds.value = parseInt(launchTime/1000);
+            minutes.value = parseInt(seconds.value/60);
+            hours.value = parseInt(minutes.value/60);
+        },1000);
+        return (hours, minutes, seconds)
+    },
 }
 </script>
 
