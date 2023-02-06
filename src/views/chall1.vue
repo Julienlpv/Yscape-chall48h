@@ -6,7 +6,7 @@
       <title>GameScape</title>
 
   </head>
-  <body>
+  <div>
       <!--<header class="header">
       </header>-->
       
@@ -18,7 +18,7 @@
           
       </footer>-->
 
-  </body>
+  </div>
   </html>
 </template>
   
