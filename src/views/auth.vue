@@ -1,9 +1,9 @@
 <template>
-  
+  <p>rrrrr auth</p>
 </template>
 
 
-<script lang="js">
+<script>
 import { defineComponent } from 'vue';
 
 

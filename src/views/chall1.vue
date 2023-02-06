@@ -1,9 +1,9 @@
 <template>
+    <p>chall1</p>
+</template>
   
-  </template>
   
-  
-  <script lang="js">
+  <script>
   import { defineComponent } from 'vue';
 
   

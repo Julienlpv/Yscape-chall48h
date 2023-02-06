@@ -1,17 +1,8 @@
 <template>
   <div class="greetings">
-    <header>
-      <router-view/>
-    </header>
-    <main>
-
-  </main>
-  <body>
-    <div class="wrapper">
-      <Home msg="You did it!" />
-    </div>
-  </body>
-</div>
+    <Home msg="You did it!" />
+    <router-view/>
+  </div>
 </template>
 
 
