@@ -19,7 +19,10 @@
 
 
   <div class="card">
-    <img src="../assets/Fond1.jpg" alt="Avatar">
+    <div class="chall2Img">
+      <img src="../assets/chall2.png" alt="Avatar">
+    </div>
+
     <div class="container">
       <h4><b>Chall 2</b></h4>
       <p>En ouvrant la porte, ce n'est malheureusement pas la sortie que vous espériez. </p>
@@ -33,7 +36,9 @@
   </div>
 
   <div class="card">
-    <img src="../assets/Fond1.jpg" alt="Avatar">
+    <div>
+      <img src="../assets/Fond1.jpg" alt="Avatar">
+    </div>  
     <div class="container">
       <h4><b>Chall 3 - Vol petit oiseau</b></h4>
       <p>Encore une ! Une nouvelle fois, ce n'est pas la lumière du jour qui vous entoure mais une autre pièce. </p>
@@ -42,10 +47,6 @@
       <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
       <p>Réunissez vos forces et tentez de le lire !</p>
         <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
-        <button @click="changeComponent"> test</button>
-        <transition name="fade">
-          <component :is="currentComponent"></component>
-        </transition>
     </div>
   </div>
   </div>
@@ -60,7 +61,7 @@ export default defineComponent ({
   data(){    
     return {
       isVisibleChall1: false,
-      currentComponent: 'Home'
+
     }
     },
   methods: {
@@ -73,11 +74,7 @@ export default defineComponent ({
       }
         
     },
-    changeComponent() {
-      this.currentComponent = this.currentComponent === 'Home'
-        ? 'Chall1'
-        : 'Home'
-    }
+    
   }
     
 })
@@ -137,7 +134,9 @@ h3 {
   margin: 30px;
   width: 300px;
 }
+.chall2Img {
 
+}
 
 img {
   width: 100%;

@@ -224,7 +224,7 @@ export default defineComponent({
 
 
   #hiddenButton {
-    background-color:red;
+    background-color:transparent;
     border:none;
     width: 35px;
     height: 35px;
