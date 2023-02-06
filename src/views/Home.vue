@@ -3,7 +3,7 @@
     <div class="timerZone">
       <TimerConcours />
     </div> 
-    <div class="cardZone">
+    <div>
         <Cards />
     </div>
 </template>
@@ -22,12 +22,10 @@
   </script>
 
   <style>
-.cardZone {
-  
-}
+
 
     .timerZone {
-    margin-top:200px;
+    margin-top:500px;
     margin-left: 30%;
   }
   </style>

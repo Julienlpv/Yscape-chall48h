@@ -2,27 +2,40 @@
 <template>
   <div class="zoneCard">
     <div class="card">
-    <img src="../assets/Fond1.jpg" alt="Avatar">
+    <img src="../assets/room.JPG" alt="Avatar">
     <div class="container">
-      <h4><b>Chall 1</b></h4>
-      <p>Architect & Engineer</p>
-      <button router-link to="/chall1"><router-link to="/chall1">Valider</router-link></button>
-      
+      <h4><b>Chall 1 - Une porte fermée</b></h4>
+      <p>Ce matin en ouvrant les yeux vous vous retrouvez dans un nouvel environnement qui vous est totalement inconnu.</p>
+      <p>Une petite pièce, dépourvut de lumière naturelle et à la porte verrouillée.</p>
+      <p>Cependant la seule issue possible est cette clé. Fouillez la pièce, elle ne devrait pas être bien loin !</p>
+    <div class="zoneInputChall1">
+      <label>Entre le code secret</label>
+        <input v-model="message" id="in">
+        <button @click="methModiStyle()">Valider</button>
+      </div>     
     </div>
   </div>
+
+
   <div class="card">
     <img src="../assets/Fond1.jpg" alt="Avatar">
     <div class="container">
       <h4><b>Chall 2</b></h4>
-      <p>Architect & Engineer</p>
+      <p>En ouvrant la porte, ce n'est malheureusement pas la sortie que vous espériez. </p>
+      <p>Vous vous retrouvez dans une autre pièce avec, en face de vous, une nouvelle porte cette fois vérouillé par un système de digicode. </p>
+      <p>A vous de trouver le code !</p>
       <button router-link to="/chall2"><router-link to="/chall1">Valider</router-link></button>
     </div>
   </div>
   <div class="card">
     <img src="../assets/Fond1.jpg" alt="Avatar">
     <div class="container">
-      <h4><b>Chall 3</b></h4>
-      <p>Architect & Engineer</p>
+      <h4><b>Chall 3 - Vol petit oiseau</b></h4>
+      <p>Encore une ! Une nouvelle fois, ce n'est pas la lumière du jour qui vous entoure mais une autre pièce. </p>
+      <p>La porte qui vous fait face est cependant inaccessible car une grille vous empêche son accès. </p>
+      <p>En regardant autour de vous, vous trouvez une inscription gravée dans le mur "Un seul mot parfois suffit à délivrer l'oiseau en cage". </p>
+      <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
+      <p>Réunissez vos forces et tentez de le lire !</p>
       <button router-link to="/chall3"><router-link to="/chall1">Valider</router-link></button>
     </div>
   </div>
@@ -36,7 +49,17 @@ defineProps({
   msg: {
     type: String,
     required: true
-  }
+  },
+  methods: {
+    methModiStyle(){
+      var input = document.getElementById("in").value;
+      console.log(input);
+        // if (message=== "violet"){
+        //   console.log(message)
+        //     const routChall1 = "/chall1"
+        // }
+        
+    }}
 })
 </script>
 
@@ -54,6 +77,10 @@ h3 {
 .greetings h1,
 .greetings h3 {
   text-align: center;
+}
+
+.zoneInputChall1 {
+  margin-top: 15px;
 }
 
 @media (min-width: 1024px) {
