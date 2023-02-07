@@ -58,7 +58,7 @@
   </div>
   <div v-if="isVisibleFIN">
     <label>Mot A jouter</label>
-    <router-link to="/"><button class="fin">RETOUR</button></router-link>
+    <router-link to="/classement"><button class="fin" >Voir votre classement</button></router-link>
   </div>
 
   
@@ -81,7 +81,7 @@ export default defineComponent({
       isVisibleChall6: true,
       isVisibleChall7: true,
       isInputEnabled: true,
-      isVisibleFIN: true,
+      isVisibleFIN: false,
     }
   },
   methods: {

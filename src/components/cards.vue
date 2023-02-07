@@ -8,7 +8,6 @@
       <p>Ce matin en ouvrant les yeux vous vous retrouvez dans un nouvel environnement qui vous est totalement inconnu.</p>
       <p>Une petite pièce, dépourvut de lumière naturelle et à la porte verrouillée.</p>
       <p>Cependant la seule issue possible est cette clé. Fouillez la pièce, elle ne devrait pas être bien loin !</p>
-      <router-link to="/chall1"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
       <div class="zoneInput">
         <label>Entre le code secret</label>
         <input id="in">
@@ -29,7 +28,6 @@
       <p>Vous vous retrouvez dans une autre pièce avec, en face de vous, une nouvelle porte cette fois vérouillé par un système de digicode. </p>
       <p>A vous de trouver le code !</p>
       <div v-if="isVisibleChall1">
-        <router-link to="/chall2"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
       <div class="zoneInput">
         <label>Entre le code secret</label>
         <input id="chall3">
