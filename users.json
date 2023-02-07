@@ -1,6 +1,25 @@
-{
+[
+  {
     "id": "1",
     "points": "10",
-    "groupname": "les jambons moldaves"
+    "username": "les jambons moldaves",
+    "password": "955d2s2ds"
+  },
+  {
+    "id": "2",
+    "points": "50",
+    "username": "The rabbits"
+  },
+  {
+    "username": "Julienlp",
+    "points": "50"
+  },
+  {
+    "username": "Julien",
+    "points" : 0
+  },
+  {
+    "username": "Julien2",
+    "points": 0
   }
-  
+]
