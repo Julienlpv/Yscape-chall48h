@@ -66,6 +66,7 @@
 import { defineComponent } from 'vue';
 import chall1 from './chall1.vue';
 import chall2 from './chall2.vue';
+
 export default defineComponent ({
   name: "home",
   components: { chall2, chall1 },
