@@ -1,5 +1,5 @@
 <template>
-  <div id="chall2">
+    <div id="chall2">
     <div class="background">
     <div class="E">
       <h2>VERROU 1</h2>
@@ -57,12 +57,17 @@
           <button class="valide btn7" @click="valideQ7">Valider</button> 
         </div>
       </div>
+
+    <div v-if="isVisibleFIN">
+      <div class="flagChall2">
+        <label id="aves">Flag : Aves</label><br>
+        <router-link to="/classement"><button id="classement" class="fin" >Voir votre classement</button></router-link>
+      </div>
+
+    </div>
   </div>
 </div>
-  <div v-if="isVisibleFIN">
-    <label>Flag : Aves</label>
-    <router-link to="/classement"><button class="fin" >Voir votre classement</button></router-link>
-  </div>
+
 
   
 </template>
@@ -244,6 +249,36 @@ input {
 
   .valide:hover {
     background-color: rgb(250, 235, 176);
+  }
+
+  .flagChall2 {
+    display: block;
+    text-align: center;
+    flex:none;
+  }
+
+  #aves{
+    color: red;
+    font-weight: bold;
+    padding-bottom: 50px;
+    font-size:30px;
+  }
+
+  #classement {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  background-color: hsla(160, 100%, 37%, 1);
+    border: 1px solid hsla(160, 100%, 37%, 1) ;
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color:white;
+  }
+
+  #classement:hover {
+    background-color: rgb(0, 59, 40) ;
   }
 
 </style>

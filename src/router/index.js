@@ -4,7 +4,7 @@ import Chall1 from '@/components/chall1.vue';
 import Chall2 from '@/components/chall2.vue';
 import Chall3 from '@/components/chall3.vue';
 import Auth from '@/views/auth.vue';
-import classement from '@/views/auth.vue';
+import classement from '@/views/classement.vue';
 
 const routes = [
     {

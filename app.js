@@ -3,9 +3,16 @@ const app = express();
 const firebase = require('firebase-admin');
 const credentials = require('./yescape-chall48h-firebase-adminsdk-koqi2-8af1ca978f.json');
 const editJsonFile = require("edit-json-file");
+const users = require('./users.json');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/users', (req, res) => {
+  res.send(users);
+});
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
 // Your web app's Firebase configuration

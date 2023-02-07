@@ -50,6 +50,7 @@
       showChall3: false,
       isVisibleChall2: false,
       isVisibleChall3: false,
+      isVisibleChall4: false,
       message:"marche pas"
     };
   },
@@ -83,6 +84,7 @@
       this.isVisibleChall2 = this.isVisibleChall2
       this.isVisibleChall3 = !this.isVisibleChall3
     }
+   
     },
     
   },
@@ -104,7 +106,7 @@
       width: 50%;
       margin-left: 25%;
       margin-right: 25%;
-      margin-top: 5%;
+      margin-top: 10px;
     }
 
     .playBtn {
