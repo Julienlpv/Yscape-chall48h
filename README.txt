@@ -19,8 +19,6 @@ A vous de trouver la solution pour les résoudre !
 
 A vous de trouver le code 
 
-Flag : Aves
-
 Chall 3 - Vol petit oiseau
 
 Encore une ! Une nouvelle fois, ce n'est pas la lumière du jour qui vous entoure mais une autre pièce. 
