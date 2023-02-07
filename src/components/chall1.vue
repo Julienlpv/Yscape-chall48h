@@ -170,9 +170,11 @@ sit tanta gloria.
   <script>
 import { defineComponent } from 'vue';
 
+
 var count=0;
 export default defineComponent({
   name: 'chall1',
+
   data() {;
     return{
     }

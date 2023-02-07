@@ -1,7 +1,6 @@
 
 <template>
   <div class="zoneCard">
-    <div>Item: {{ msg }}</div>
     <div class="card">
     <img src="../assets/room.JPG" alt="Avatar">
     <div class="container">
@@ -62,13 +61,16 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
+import chall1 from './chall1.vue';
+import chall2 from './chall2.vue';
 export default defineComponent ({
   name: "home",
+  components: { chall2, chall1 },
   data(){    
     return {
       isVisibleChall1: false,
-      isVisibleChall3: false
+      isVisibleChall3: false,
 
     }
     },
@@ -110,12 +112,29 @@ h3 {
   font-size: 1.2rem;
 }
 
-
+a{
+  cursor: inherit;
+}
+a:hover{
+  background-color:#181818;
+}
+button {
+  margin-left: 1em;
+  border-radius: 6px;
+  width: 5em;
+  height: 1.6em;
+  cursor: pointer;
+}
+input#in{
+  border-radius: 5px;
+  height: 1.5em;
+}
 .player {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 20%;
   margin-left: 40%;
+  cursor: pointer;
 }
 .greetings h1,
 .greetings h3 {
@@ -152,9 +171,7 @@ h3 {
   margin: 30px;
   width: 300px;
 }
-.chall2Img {
 
-}
 
 img {
   width: 100%;
@@ -168,6 +185,10 @@ img {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+div#ZIInter{
+  display: flex;
+  margin-top: 1em;
 }
 
 </style>
