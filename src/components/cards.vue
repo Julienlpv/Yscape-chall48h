@@ -8,7 +8,6 @@
       <p>Ce matin en ouvrant les yeux vous vous retrouvez dans un nouvel environnement qui vous est totalement inconnu.</p>
       <p>Une petite pièce, dépourvut de lumière naturelle et à la porte verrouillée.</p>
       <p>Cependant la seule issue possible est cette clé. Fouillez la pièce, elle ne devrait pas être bien loin !</p>
-      <router-link to="/chall1"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
       <div class="zoneInput">
         <label>Entre le code secret</label>
         <input id="in">
@@ -19,21 +18,29 @@
 
 
   <div class="card">
-    <img src="../assets/Fond1.jpg" alt="Avatar">
+    <div class="chall2Img">
+      <img src="../assets/chall2.png" alt="Avatar">
+    </div>
+
     <div class="container">
       <h4><b>Chall 2</b></h4>
       <p>En ouvrant la porte, ce n'est malheureusement pas la sortie que vous espériez. </p>
       <p>Vous vous retrouvez dans une autre pièce avec, en face de vous, une nouvelle porte cette fois vérouillé par un système de digicode. </p>
       <p>A vous de trouver le code !</p>
       <div v-if="isVisibleChall1">
-        <router-link to="/chall2"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
+      <div class="zoneInput">
+        <label>Entre le code secret</label>
+        <input id="chall3">
+        <button @click="methChall3">Valider</button>  
       </div>
-
+    </div>
     </div>
   </div>
 
   <div class="card">
-    <img src="../assets/Fond1.jpg" alt="Avatar">
+    <div>
+      <img src="../assets/Fond1.jpg" alt="Avatar">
+    </div>  
     <div class="container">
       <h4><b>Chall 3 - Vol petit oiseau</b></h4>
       <p>Encore une ! Une nouvelle fois, ce n'est pas la lumière du jour qui vous entoure mais une autre pièce. </p>
@@ -41,11 +48,9 @@
       <p>En regardant autour de vous, vous trouvez une inscription gravée dans le mur "Un seul mot parfois suffit à délivrer l'oiseau en cage". </p>
       <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
       <p>Réunissez vos forces et tentez de le lire !</p>
+      <div v-if="isVisibleChall3">
         <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
-        <button @click="changeComponent"> test</button>
-        <transition name="fade">
-          <component :is="currentComponent"></component>
-        </transition>
+      </div>
     </div>
   </div>
   </div>
@@ -54,13 +59,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
+import chall1 from './chall1.vue';
+import chall2 from './chall2.vue';
 export default defineComponent ({
   name: "home",
+  components: { chall2, chall1 },
   data(){    
     return {
       isVisibleChall1: false,
-      currentComponent: 'Home'
+      isVisibleChall3: false,
+
     }
     },
   methods: {
@@ -73,11 +82,17 @@ export default defineComponent ({
       }
         
     },
-    changeComponent() {
-      this.currentComponent = this.currentComponent === 'Home'
-        ? 'Chall1'
-        : 'Home'
-    }
+
+    methChall3(){
+      var input = document.getElementById("chall3").value;
+      console.log(input)
+      if (input == "t" || input == "t") {
+        alert("Bravo tu as trouvé le flag ! Tu arrive à la dernière étape de ce jeu. Bonne chance !")
+        this.isVisibleChall3 = !this.isVisibleChall3
+      }
+        
+    },
+    
   }
     
 })
@@ -95,12 +110,29 @@ h3 {
   font-size: 1.2rem;
 }
 
-
+a{
+  cursor: inherit;
+}
+a:hover{
+  background-color:#181818;
+}
+button {
+  margin-left: 1em;
+  border-radius: 6px;
+  width: 5em;
+  height: 1.6em;
+  cursor: pointer;
+}
+input#in{
+  border-radius: 5px;
+  height: 1.5em;
+}
 .player {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 20%;
   margin-left: 40%;
+  cursor: pointer;
 }
 .greetings h1,
 .greetings h3 {
@@ -151,6 +183,10 @@ img {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+div#ZIInter{
+  display: flex;
+  margin-top: 1em;
 }
 
 </style>

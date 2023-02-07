@@ -1,15 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
-import Chall1 from '@/views/chall1.vue';
-import Chall2 from '@/views/chall2.vue';
-import Chall3 from '@/views/chall3.vue';
+import Chall1 from '@/components/chall1.vue';
+import Chall2 from '@/components/chall2.vue';
+import Chall3 from '@/components/chall3.vue';
 import Auth from '@/views/auth.vue';
+import classement from '@/views/auth.vue';
 
 const routes = [
     {
         name:'Home',
         path: '/',
         component: Home,
+        props: {value: 'false'}
       },
       {
         name: 'Auth',
@@ -34,8 +36,16 @@ const routes = [
         path: '/chall3',
         component: Chall3,
         
+      },
+      {
+        name: 'classement',
+        path: '/classement',
+        component: classement,
+        
       }
+     
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),

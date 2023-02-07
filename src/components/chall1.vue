@@ -170,9 +170,11 @@ sit tanta gloria.
   <script>
 import { defineComponent } from 'vue';
 
+
 var count=0;
 export default defineComponent({
   name: 'chall1',
+
   data() {;
     return{
     }
@@ -224,7 +226,7 @@ export default defineComponent({
 
 
   #hiddenButton {
-    background-color:red;
+    background-color:transparent;
     border:none;
     width: 35px;
     height: 35px;
