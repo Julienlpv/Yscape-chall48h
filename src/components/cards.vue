@@ -48,9 +48,6 @@
       <p>En regardant autour de vous, vous trouvez une inscription gravée dans le mur "Un seul mot parfois suffit à délivrer l'oiseau en cage". </p>
       <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
       <p>Réunissez vos forces et tentez de le lire !</p>
-      <div v-if="isVisibleChall3">
-        <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar" ></router-link>
-      </div>
     </div>
   </div>
   </div>
@@ -69,7 +66,8 @@ export default defineComponent ({
     return {
       isVisibleChall1: false,
       isVisibleChall3: false,
-      myValue: "valide"
+      myValueChall2: "valideChall2",
+      myValueChall3: "valideChall3"
 
     }
     },
@@ -80,7 +78,8 @@ export default defineComponent ({
       if (input == "Clef violette" || input == "clef violette" || input == "clefviolette") {
         alert("Bravo tu as trouvé la clef ! Tu peux passer à l'étape suivante. Bon jeu !")
         this.isVisibleChall1 = !this.isVisibleChall1;
-        this.$emit('message-ent', this.myValue);
+        this.$emit('message-sent', this.myValueChall2);
+
 
       }
         
@@ -92,7 +91,7 @@ export default defineComponent ({
       if (input == "aves" || input == "Aves") {
         alert("Bravo tu as trouvé le flag ! Tu arrive à la dernière étape de ce jeu. Bonne chance !")
         this.isVisibleChall3 = !this.isVisibleChall3
-
+        this.$emit('message-sent', this.myValueChall3);
       }
         
     },

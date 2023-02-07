@@ -1,28 +1,35 @@
 
 <template>  
+<div id="Home">
     <div class="timerZone">
       <TimerConcours />
     </div> 
     <div>
-      <div>
-        <p>test : {{  message }}</p>
+      <div class="playBtn">
+        <div class="distanceBtn">
+          <button class="challbtn btn1" @click="showChall1 = !showChall1"></button>
+        </div>
+        <div v-if="isVisibleChall2">
+          <div class="distanceBtn">
+            <button class="challbtn btn2" fill="clear" @click="showChall2 = !showChall2"></button>
+          </div>
+        </div>
+        <div v-if="isVisibleChall3">
+          <div class="distanceBtn">
+            <button class="challbtn btn" fill="clear" @click="showChall3 = !showChall3"></button>
+          </div>
+        </div>
       </div>
-      <button @click="showChall1 = !showChall1">GO</button>
-      <div v-if="isVisibleChall1">
-        <button fill="clear" @click="showChall2 = !showChall2"><img class="player" src="../assets/play.png" alt="Avatar"></button>
-      </div>
-      <div v-if="isVisibleChall1">
-        <button fill="clear" @click="showChall3 = !showChall3"><img class="player" src="../assets/play.png" alt="Avatar"></button>
-      </div>
-      
 
-        <Cards v-if="!showChall2 && !showChall1 && !showChall3" />
 
-        <chall1 v-if="showChall1 && !showChall2 && !showChall3" @message-sent="updateMessage" />
+        <Cards @message-sent="updateMessage" v-if="!showChall2 && !showChall1 && !showChall3" />
+
+        <chall1 v-if="showChall1 && !showChall2 && !showChall3" />
         <chall2 v-if="showChall2 && !showChall1 && !showChall3"/>
         <chall3 v-if="showChall3 && !showChall1 && !showChall2"/>
     
     </div>
+  </div>
 </template>
   
   <script>
@@ -41,8 +48,9 @@
       showChall1: false,
       showChall2: false,
       showChall3: false,
-      isVisibleChall1: false,
-      message: "Pas de message"
+      isVisibleChall2: false,
+      isVisibleChall3: false,
+      message:"marche pas"
     };
   },
   methods: {
@@ -66,8 +74,16 @@
         
     },
     updateMessage(newValue) {
-            this.message = newValue;
-        },
+      console.log(newValue);
+      this.message = newValue;
+    if (newValue == "valideChall2") {
+      this.isVisibleChall2 = !this.isVisibleChall2
+    }
+    if (newValue == "valideChall3") {
+      this.isVisibleChall2 = this.isVisibleChall2
+      this.isVisibleChall3 = !this.isVisibleChall3
+    }
+    },
     
   },
 
@@ -91,5 +107,25 @@
       margin-top: 5%;
     }
 
+    .playBtn {
+      justify-content: center;
+      margin: auto;
+      text-align: center;
+      display:flex;
+    }
+
+    .distanceBtn {
+      margin: 0 130px;
+    }
+
+    .challbtn {
+      background-image: url('../assets/play.png');
+      width:52px;
+      height: 52px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+    }
   </style>
   

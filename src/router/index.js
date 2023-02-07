@@ -8,16 +8,15 @@ import classement from '@/views/auth.vue';
 
 const routes = [
     {
-        name:'Home',
+        name:'auth',
         path: '/',
-        component: Home,
-        props: {value: 'false'}
+        component: Auth,
+       
       },
       {
-        name: 'Auth',
-        path: '/auth',
-        component: Auth,
-        
+        name:'Home',
+        path: '/Home',
+        component: Home
       },
       {
         name: 'Chall1',
