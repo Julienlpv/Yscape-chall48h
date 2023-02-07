@@ -31,7 +31,7 @@
       <div class="zoneInput">
         <label>Entre le code secret</label>
         <input id="chall3">
-        <button @click="methChall3">Valider</button>  
+        <button @click="methChall3" msg="valide">Valider</button>  
       </div>
     </div>
     </div>
@@ -49,7 +49,7 @@
       <p>Vous trouvez également un morceau de papier en fouillant la pièce mais il est quelque peu illisible. </p>
       <p>Réunissez vos forces et tentez de le lire !</p>
       <div v-if="isVisibleChall3">
-        <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar"></router-link>
+        <router-link to="/chall3"><img class="player" src="../assets/play.png" alt="Avatar" ></router-link>
       </div>
     </div>
   </div>
@@ -69,6 +69,7 @@ export default defineComponent ({
     return {
       isVisibleChall1: false,
       isVisibleChall3: false,
+      myValue: "valide"
 
     }
     },
@@ -76,9 +77,11 @@ export default defineComponent ({
     methModiStyle(){
       var input = document.getElementById("in").value;
       console.log(input)
-      if (input == "Clef violette" || input == "clef violette") {
+      if (input == "Clef violette" || input == "clef violette" || input == "clefviolette") {
         alert("Bravo tu as trouvé la clef ! Tu peux passer à l'étape suivante. Bon jeu !")
-        this.isVisibleChall1 = !this.isVisibleChall1
+        this.isVisibleChall1 = !this.isVisibleChall1;
+        this.$emit('message-ent', this.myValue);
+
       }
         
     },
@@ -86,9 +89,10 @@ export default defineComponent ({
     methChall3(){
       var input = document.getElementById("chall3").value;
       console.log(input)
-      if (input == "t" || input == "t") {
+      if (input == "aves" || input == "Aves") {
         alert("Bravo tu as trouvé le flag ! Tu arrive à la dernière étape de ce jeu. Bonne chance !")
         this.isVisibleChall3 = !this.isVisibleChall3
+
       }
         
     },

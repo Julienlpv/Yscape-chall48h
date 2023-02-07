@@ -4,8 +4,10 @@
       <TimerConcours />
     </div> 
     <div>
-
-      <button fill="clear" @click="showChall1 = !showChall1"><img class="player" src="../assets/play.png" alt="Avatar"></button>
+      <div>
+        <p>test : {{  message }}</p>
+      </div>
+      <button @click="showChall1 = !showChall1">GO</button>
       <div v-if="isVisibleChall1">
         <button fill="clear" @click="showChall2 = !showChall2"><img class="player" src="../assets/play.png" alt="Avatar"></button>
       </div>
@@ -16,7 +18,7 @@
 
         <Cards v-if="!showChall2 && !showChall1 && !showChall3" />
 
-        <chall1 v-if="showChall1 && !showChall2 && !showChall3"/>
+        <chall1 v-if="showChall1 && !showChall2 && !showChall3" @message-sent="updateMessage" />
         <chall2 v-if="showChall2 && !showChall1 && !showChall3"/>
         <chall3 v-if="showChall3 && !showChall1 && !showChall2"/>
     
@@ -38,7 +40,9 @@
     return {
       showChall1: false,
       showChall2: false,
-      showChall3: false
+      showChall3: false,
+      isVisibleChall1: false,
+      message: "Pas de message"
     };
   },
   methods: {
@@ -61,8 +65,12 @@
       }
         
     },
+    updateMessage(newValue) {
+            this.message = newValue;
+        },
     
-  }
+  },
+
     
   });
   </script>
