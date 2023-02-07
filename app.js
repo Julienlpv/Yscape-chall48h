@@ -2,19 +2,11 @@ const express = require('express');
 const app = express();
 const firebase = require('firebase-admin');
 const credentials = require('./yescape-chall48h-firebase-adminsdk-koqi2-8af1ca978f.json');
-const bcrypt = require('bcrypt');
-const bodyParser = require("body-parser");
-const usrs = require("./users.json")
-
-
-const redirect_uri = 'http://localhost:3000/callback/'; 
-
+const editJsonFile = require("edit-json-file");
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-
-
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -37,47 +29,45 @@ firebase.initializeApp({
   
   module.exports = firebase;
 
-
-var db = firebase.database();
-
 // LECTURE DE LA BDD 
-var usersRef = db.ref("user");
+// var db = firebase.database();
+// var usersRef = db.ref("user");
 
-usersRef.once("value", function(snapshot) {
-  console.log(snapshot.val());
-});
+// usersRef.once("value", function(snapshot) {
+//   console.log(snapshot.val());
+// });
 
 
   
   // Route to handle sign up
-  app.post('/signup',  (req, res) => {
-    const { email, password, confirmPassword } = req.body;
+  // app.post('/signup',  (req, res) => {
+  //   const { email, password, confirmPassword } = req.body;
   
-    // Validate user input
-    if (!email || !password || !confirmPassword) {
-      return res.status(400).json({ error: 'Merci de renseigner votre email et votre mot de passe' });
-    }
-    if (password !== confirmPassword) {
-      return res.status(400).json({ error: 'Les mots de passe ne correspondent pas' });
-    }
+  //   // Validate user input
+  //   if (!email || !password || !confirmPassword) {
+  //     return res.status(400).json({ error: 'Merci de renseigner votre email et votre mot de passe' });
+  //   }
+  //   if (password !== confirmPassword) {
+  //     return res.status(400).json({ error: 'Les mots de passe ne correspondent pas' });
+  //   }
   
-    // Hash password
-    bcrypt.hash(password, 10, (err, hashedPassword) => {
-      if (err) {
-        return res.status(500).json({ error: 'Mot de passe non haché' });
-      }
+  //   // Hash password
+  //   bcrypt.hash(password, 10, (err, hashedPassword) => {
+  //     if (err) {
+  //       return res.status(500).json({ error: 'Mot de passe non haché' });
+  //     }
   
     
-      // Creation du user via firebase
-      firebase.auth().createUserWithEmailAndPassword(email, hashedPassword)
-        .then(() => {
-          res.json({ message: 'Sign up successful' });
-        })
-        .catch((error) => {
-          res.status(400).json({ error: error.message });
-        });
+  //     // Creation du user via firebase
+  //     firebase.auth().createUserWithEmailAndPassword(email, hashedPassword)
+  //       .then(() => {
+  //         res.json({ message: 'Sign up successful' });
+  //       })
+  //       .catch((error) => {
+  //         res.status(400).json({ error: error.message });
+  //       });
 
-    });
+  //   });
 
 
     // usersRef.push({
@@ -86,17 +76,17 @@ usersRef.once("value", function(snapshot) {
     //   password: req.body.hashedPassword
     // });
 
-  });
+
   
   // Route du sign in
-  app.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
-    console.log('COUCOu');
+  // app.post('/signin', async (req, res) => {
+  //   const { email, password } = req.body;
+  //   console.log('COUCOu');
   
-    // validation du champ user
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Merci de renseigner les champs' });
-    }
+  //   // validation du champ user
+  //   if (!email || !password) {
+  //     return res.status(400).json({ error: 'Merci de renseigner les champs' });
+  //   }
 
 
     // connection du user à firebase
@@ -109,36 +99,63 @@ usersRef.once("value", function(snapshot) {
     //   });
 
 
-  
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
+// app.post("/login", (req, res) => {
+//   const { email, password } = req.body;
   
-  // Vérification des données d'identification (email et mot de passe)
-  if (email === "test@example.com" && password === "secret") {
-    // Connecté avec succès
-    res.send("Connexion réussie");
-  } else {
-    // Échec de la connexion
-    res.send("Email ou mot de passe incorrect");
-  }
-});
-})
+//   // Vérification des données d'identification (email et mot de passe)
+//   if (email === "test@example.com" && password === "secret") {
+//     // Connecté avec succès
+//     res.send("Connexion réussie");
+//   } else {
+//     // Échec de la connexion
+//     res.send("Email ou mot de passe incorrect");
+//   }
+// });
+// })
   
     
 //   });
 
-
-app.get('/test', (req,res) => {
-
-  res.send('test ok')
-})
-
-
 ///////////////////////////////////////////////////////
+
+
+app.get("/signup", (req, res) => {
+  if (!req.query.username) {
+      return res.status(400).json({ message: 'Veuillez entrer un nom de groupe' })
+  }
+
+  const usrs = require("./users.json");
+  const user = usrs.find(u => u.username === req.query.username)
+
+  if (user) {
+      return res.status(400).json({ message: 'Utilisateur existe déjà' })
+  }
+
+  let file = editJsonFile('./users.json');
+  var user_data = { "username": req.query.username, "points": 0 };
+  file.append("", user_data);
+  file.save();
+
+  return res.json({ message: 'Utilisateur créé' });
+});
+
+// app.get("/signin", (req, res) => {
+//   if (!req.query.username || !req.query.password) {
+//       return res.status(400).json({ message: 'Veuillez entrer un login et un mot de passe' })
+//   }
+
+//   var users = require('./users.json');
+//   const user = users.find(u => u.username === req.query.username && u.password === req.query.password)
+
+//   if (!user) {
+//       return res.status(400).json({ message: 'Mauvais login ou mot de passe' });
+//   }
+//   console.log("Connexion réussie");
+// });
+
 
 const port = 3000;
 app.listen(port, () => {
